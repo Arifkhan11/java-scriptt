@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            background-color: blueviolet;
+            color: white;
+            padding: 0px;
+            margin: 0px;
+        }
+        #textbox{
+            width: 99.5%;
+            height: 300px;
+            border-color: blueviolet;
+            font-size: 18px;
+        }
+        p{
+            text-align: center;
+            background-color: blueviolet;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word and Character Counter</h1>
+    <textarea  id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id = "word">0</span> Words and 
+        <span id = "char">0</span> Character
+    </p>
+
+    <script>
+
+ let textbox = document.getElementById("textbox");
+ textbox.addEventListener('input', function(){
+ 
+    let text = this.value;
+     let char = text.length;
+     document.getElementById("char").innerHTML = char;
+
+     text = text.trim();    //this is use for remove extra space form start and at last
+     let words = text.split(" ");    // this is used for if give space then word split
+      let cleanlist = words.filter(function(elm){   //this is used for remove extra space and store in clean arrey
+        return elm != "";    // jo not equal to space ho wahi arrey me store ho
+
+      });
+     document.getElementById("word").innerHTML = cleanlist.length;
+});
+
+    </script>
+</body>
+</html>
